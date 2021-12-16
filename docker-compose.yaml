@@ -1,0 +1,41 @@
+version: "3.2"
+services:
+  sender:
+    container_name: sender
+    build:
+      context: ./sender
+    networks:
+      - rabbitmq_net
+    depends_on:
+      - rabbitmq
+    ports:
+      - 5012:5012
+      - 15672:15672
+
+  receiver:
+    container_name: sender
+    build:
+      context: ./receiver
+    networks:
+      - rabbitmq_net
+    depends_on:
+      - rabbitmq
+    ports:
+      - 5012:5012
+      - 15672:15672
+
+  rabbitmq:
+    image: rabbitmq:3.8.1-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - rabbitmq_net
+
+networks:
+  rabbitmq_net:
+    driver: bridge
