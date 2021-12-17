@@ -13,7 +13,7 @@ services:
       - 5012:5012
 
   receiver:
-    container_name: sender
+    container_name: receiver
     build:
       context: ./receiver
     networks:
