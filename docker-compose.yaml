@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.8"
 services:
   sender:
     container_name: sender
@@ -7,10 +7,10 @@ services:
     networks:
       - rabbitmq_net
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
     ports:
       - 5012:5012
-      - 15672:15672
 
   receiver:
     container_name: sender
@@ -19,7 +19,11 @@ services:
     networks:
       - rabbitmq_net
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
+
+
+
     ports:
       - 5012:5012
       - 15672:15672
