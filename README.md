@@ -10,11 +10,11 @@ inspect rabbitmq for the actual network name
 > 
 ### initiate receiver and then sender
 ```
-`source ./initiate_containers`
+`source ./init_containers`
 
-`docker_container receiver`
+`build_run_container receiver`
 
-`docker_container sender`
+`build_run_container sender`
 ```
 https://github.com/octo-org/octo-repo/issues/740
 
