@@ -19,5 +19,6 @@ inspect rabbitmq for the actual network name
 https://github.com/octo-org/octo-repo/issues/740
 
 - [x] run as individual containers
-- [ ] run everything using compose
+- [x] run everything using compose
+- [ ] add two stage build to reduce attack surface
 - [ ] run asynchronously  
