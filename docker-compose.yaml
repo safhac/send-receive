@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.8"
 services:
   sender:
     container_name: sender
@@ -7,22 +7,22 @@ services:
     networks:
       - rabbitmq_net
     depends_on:
-      - rabbitmq
-    ports:
-      - 5012:5012
-      - 15672:15672
+      rabbitmq:
+        condition: service_healthy
+
 
   receiver:
-    container_name: sender
+    container_name: receiver
     build:
       context: ./receiver
     networks:
       - rabbitmq_net
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
     ports:
       - 5012:5012
-      - 15672:15672
+
 
   rabbitmq:
     image: rabbitmq:3.8.1-management
@@ -33,6 +33,11 @@ services:
     volumes:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      timeout: 20s
+      retries: 5
     networks:
       - rabbitmq_net
 
