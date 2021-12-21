@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "receiver"
-version = "0.1.0"g
+version = "0.1.0"
 description = "subscribe to a rabbitmq channel"
 authors = ["Your Name <you@example.com>"]
 
