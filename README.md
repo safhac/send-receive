@@ -6,6 +6,6 @@ read more [about running docker rootless](https://docs.docker.com/engine/securit
 
 - [x] run as individual containers
 - [x] run everything using compose
-- [ ] add packaging 
+- [x] add packaging (used poetry) 
 - [ ] add two stage build
 - [ ] run asynchronously  
