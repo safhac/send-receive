@@ -1,15 +1,19 @@
 [tool.poetry]
 name = "receiver"
 version = "0.1.0"
-description = "subscribe to a rabbitmq channel"
-authors = ["Your Name <you@example.com>"]
+description = "subscribe to rabbitmq channel"
+authors = ["Asaf Cohen <safhac@gamil.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pika = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
+pika = "^1.2.0"
+poetry = "^1.1.12"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+receive = "receiver.receive:main"
