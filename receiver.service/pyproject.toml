@@ -3,6 +3,9 @@ name = "receiver"
 version = "0.1.0"
 description = "subscribe to rabbitmq channel"
 authors = ["Asaf Cohen <safhac@gamil.com>"]
+packages = [
+    { include = "receiver" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"

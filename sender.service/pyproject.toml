@@ -3,6 +3,9 @@ name = "sender"
 version = "0.1.0"
 description = "send messages to rabbitmq"
 authors = ["Your Name <you@example.com>"]
+packages = [
+    { include = "sender" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
