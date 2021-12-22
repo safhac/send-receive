@@ -6,5 +6,5 @@ RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN /usr/local/bin/python -m pip install pika poetry
 WORKDIR /sender
 COPY . .
-RUN poetry install
-CMD ["python", "-m", "send"]
+RUN poetry install; poetry build
+CMD ["poetry", "run", "python", "-m", "sender.send"]
