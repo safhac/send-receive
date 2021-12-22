@@ -1,9 +1,9 @@
 version: "3.8"
 services:
   sender:
-    container_name: sender
+    container_name: sender.service
     build:
-      context: ./sender
+      context: sender.service
     networks:
       - rabbitmq_net
     depends_on:
@@ -12,9 +12,9 @@ services:
 
 
   receiver:
-    container_name: receiver
+    container_name: receiver.service
     build:
-      context: ./receiver
+      context: receiver.service
     networks:
       - rabbitmq_net
     depends_on:
