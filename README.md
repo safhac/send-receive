@@ -6,5 +6,10 @@ read more [about running docker rootless](https://docs.docker.com/engine/securit
 
 - [x] run as individual containers
 - [x] run everything using compose
-- [ ] add two stage build to reduce attack surface
+- [x] add packaging (used poetry) 
+- [ ] add two stage build
 - [ ] run asynchronously  
+
+---
+### _note:_
+>package installs are considerably slower than `pip install -r requirements.txt`
