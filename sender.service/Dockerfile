@@ -7,4 +7,4 @@ RUN /usr/local/bin/python -m pip install pika poetry
 WORKDIR /sender
 COPY . .
 RUN poetry install
-CMD ["poetry", "run", "send"]
+CMD ["poetry", "run", "python", "-m", "sender.send"]

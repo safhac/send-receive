@@ -7,4 +7,4 @@ RUN /usr/local/bin/python -m pip install pika poetry
 WORKDIR /receiver
 COPY . .
 RUN poetry install
-CMD ["poetry", "run", "receive"]
+CMD ["poetry", "run", "python", "-m", "receiver.receive"]
