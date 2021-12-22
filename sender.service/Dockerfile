@@ -3,7 +3,8 @@ RUN useradd --create-home appuser
 USER appuser
 ENV PATH="/home/appuser/.local/bin:$PATH"
 RUN /usr/local/bin/python -m pip install --upgrade pip
-RUN /usr/local/bin/python -m pip install pika
+RUN /usr/local/bin/python -m pip install pika poetry
 WORKDIR /sender
 COPY . .
-CMD ["python", "-m", "send"]
+RUN poetry install
+CMD ["poetry", "run", "python", "-m", "sender.send"]

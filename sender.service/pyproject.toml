@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "sender"
+version = "0.1.0"
+description = "send messages to rabbitmq"
+authors = ["Your Name <you@example.com>"]
+packages = [
+    { include = "sender" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pika = "^1.2.0"
+
+[tool.poetry.dev-dependencies]
+pika = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
