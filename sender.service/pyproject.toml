@@ -2,7 +2,7 @@
 name = "sender"
 version = "0.1.0"
 description = "send messages to rabbitmq"
-authors = ["Your Name <you@example.com>"]
+authors = ["Asaf Cohen <https://github.com/safhac>"]
 packages = [
     { include = "sender" },
 ]

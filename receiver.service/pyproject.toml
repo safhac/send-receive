@@ -2,7 +2,7 @@
 name = "receiver"
 version = "0.1.0"
 description = "subscribe to rabbitmq channel"
-authors = ["Asaf Cohen <safhac@gamil.com>"]
+authors = ["Asaf Cohen <https://github.com/safhac>"]
 packages = [
     { include = "receiver" },
 ]
