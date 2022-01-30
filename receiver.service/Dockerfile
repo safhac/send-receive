@@ -14,5 +14,4 @@ RUN useradd -mU appuser
 COPY --from=rec-compile-img --chown=appuser /opt/venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"
-RUN pip list
-#CMD ["python", "-m", "receiver.receive"]
+CMD ["python", "-m", "receiver"]
