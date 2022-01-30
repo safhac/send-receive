@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9-slim
+FROM python:3.9-slim AS send-compile-img
+
 RUN useradd --create-home appuser
 USER appuser
 ENV PATH="/home/appuser/.local/bin:$PATH"
