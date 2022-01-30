@@ -11,7 +11,7 @@ function build_run_container() {
 }
 
 function poetry_init() {
-  cd ../receiver.service
+  cd receiver.service
   RECTOMLFILE=./pyproject.toml
   if test -f "$RECTOMLFILE"; then
     poetry init
