@@ -12,4 +12,4 @@ read more [about running docker rootless](https://docs.docker.com/engine/securit
 
 ---
 ### _note:_
->package installs are considerably slower than `pip install -r requirements.txt`
+> package installs are considerably slower than `pip install -r requirements.txt`
