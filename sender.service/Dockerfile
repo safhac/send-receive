@@ -14,4 +14,4 @@ RUN useradd -mU appuser
 COPY --from=send-compile-img --chown=appuser /opt/venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"
-CMD ["python", "-m", "sender"]
+CMD ["python", "-m", "sender.send"]
