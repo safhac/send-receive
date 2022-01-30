@@ -15,13 +15,13 @@ services:
     container_name: receiver.service
     build:
       context: receiver.service
-    networks:
-      - rabbitmq_net
-    depends_on:
-      rabbitmq:
-        condition: service_healthy
-    ports:
-      - 5012:5012
+#    networks:
+#      - rabbitmq_net
+#    depends_on:
+#      rabbitmq:
+#        condition: service_healthy
+#    ports:
+#      - 5012:5012
 
 
   rabbitmq:

@@ -1,11 +1,18 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9-slim
-RUN useradd --create-home appuser
-USER appuser
-ENV PATH="/home/appuser/.local/bin:$PATH"
-RUN /usr/local/bin/python -m pip install --upgrade pip
-RUN /usr/local/bin/python -m pip install pika
-WORKDIR /receiver
-COPY . .
-RUN poetry install
-CMD ["poetry", "run", "python", "-m", "receiver.receive"]
+FROM python:3.9.7-slim AS rec-compile-img
+
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY ./ /opt/receiver
+WORKDIR /opt/receiver/
+RUN pip install -U pip
+RUN pip install pika ./dist/receiver-0.1.0-py3-none-any.whl
+
+FROM python:3.9.7-slim AS rec-build-img
+RUN useradd -mU appuser
+COPY --from=rec-compile-img --chown=appuser /opt/venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip list
+#CMD ["python", "-m", "receiver.receive"]

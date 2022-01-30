@@ -3,6 +3,10 @@
 function dcu() {
   docker-compose up --build -d --force-recreate --remove-orphans
 }
+# service up
+function serup() {
+  docker-compose up --remove-orphans -d "$1"
+}
 
 # docker build, docker run with network
 function build_run_container() {
