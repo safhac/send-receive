@@ -6,7 +6,7 @@ def main():
 
     connection = pika.BlockingConnection(pika.ConnectionParameters(host="rabbitmq"))
     channel = connection.channel()
-    channel.queue_declare(queue="hello")
+    channel.queue_declare(queue="hello", durable=True)
 
     def callback(ch, method, properties, body):
         print(" [x] Received %r" % body)
@@ -19,6 +19,7 @@ def main():
 
 if __name__ == "__main__":
     try:
+        print("starting receiver")
         main()
     except KeyboardInterrupt:
         print("Interrupted")
